@@ -1,18 +1,6 @@
 #import "@preview/codelst:2.0.2": *
 #import "@preview/acrostiche:0.5.1": *
 
-// Initialisierung für Akronyme
-#let init-acronyms(acronyms) = {
-  if acronyms != none {
-    state("acronyms").update(acronyms)
-  }
-}
-
-// Funktion zur Anzeige von Akronymen
-#let acr(key) = {
-  acrostiche.show-acronym(key)
-}
-
 #let htwgCite(lbl, vgl: true, page: none, pageRange: none) = {
   if pageRange != none {
     if vgl {
@@ -521,7 +509,9 @@
         )
       }
     ]
-  }// Textformatierung - Blocksatz mit 20% Durchschuss
+  }
+  
+  // Textformatierung - Blocksatz mit 20% Durchschuss
   set par(justify: true, leading: 1.2em)
   
   // Arabische Seitennummerierung für den Hauptteil
