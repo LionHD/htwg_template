@@ -31,6 +31,7 @@
   show-header: true,
   show-student-id: true,
   show-symbols: true,
+  captions-top: true,
   numbering-style: "1",
   numbering-alignment: center,  
   abstract: abstract,

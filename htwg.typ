@@ -264,6 +264,7 @@
   show-header: true,
   show-student-id: true,
   show-symbols: false,
+  captions-top: false, // Set to true to position all figure captions at the top
   numbering-style: "1",
   numbering-alignment: center,
   abstract: none,
@@ -294,7 +295,7 @@
   let heading-font = "Arial"
   
   // Abbildungen formatieren
-  set figure.caption(separator: [: ], position: bottom)
+  set figure.caption(separator: [: ], position: if captions-top { top } else { bottom })
   // Schrift für den gesamten Text
   set text(font: body-font, lang: language, 12pt)
   

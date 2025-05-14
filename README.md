@@ -93,10 +93,10 @@ Diese Pakete können entweder:
   show-code-snippets: false,                 // Codeverzeichnis anzeigen (falls Code-Snippets vorhanden)
   show-appendix: true,                       // Anhang anzeigen
   show-abstract: true,                       // Abstract anzeigen
-  show-preface: true,                        // Vorwort anzeigen
-  show-header: true,                         // Kopfzeile anzeigen
+  show-preface: true,                        // Vorwort anzeigen  show-header: true,                         // Kopfzeile anzeigen
   show-student-id: true,                     // Matrikelnummer anzeigen
   show-symbols: true,                        // Formelzeichenverzeichnis anzeigen
+  captions-top: false,                       // Position der Bildunterschriften: true=oben, false=unten
   
   // Seitennummerierung
   numbering-style: "1",                      // Format der Seitennummerierung (arabische Ziffern)
@@ -191,7 +191,42 @@ Wie in @fig-label zu sehen ist...
 ```
 
 Die Abbildung erhält automatisch eine Nummer und erscheint im Abbildungsverzeichnis.
+
+### Positionierung von Bild- und Tabellenbeschriftungen
+
+Die Position der Beschriftungen (Captions) für Abbildungen und Tabellen kann global oder individuell eingestellt werden.
+
+#### Globale Einstellung für das gesamte Dokument
+
+Im Header des Templates über den Parameter `captions-top`:
+
+```typst
+#show: htwg.with(
+  // ...andere Parameter...
+  captions-top: true,  // true = Beschriftungen oben, false = Beschriftungen unten
+  // ...weitere Parameter...
+)
 ```
+
+#### Individuelle Einstellung für einzelne Elemente
+
+Für eine einzelne Abbildung oder Tabelle direkt vor dem Element:
+
+```typst
+// Beschriftung oben setzen für das nächste Element
+#set figure.caption(position: top)
+#figure(
+  // Abbildung oder Tabelle...
+)
+
+// Beschriftung unten setzen für das nächste Element
+#set figure.caption(position: bottom)
+#figure(
+  // Abbildung oder Tabelle...
+)
+```
+
+Die individuelle Einstellung überschreibt die globale Einstellung nur für das direkt folgende Element.
 
 ### Tabellen einfügen
 
